@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_package="org.immatriculation.services.stubs";
+service VehicleService {
+  rpc getVehicleInfo(VehicleRequest) returns (VehicleResponse) {}
+}
+
+message VehicleRequest {
+  string vehicle_license = 1;
+}
+
+message VehicleResponse {
+  string ownerName = 1;
+}
