@@ -1,0 +1,29 @@
+type Query {
+    infractions:[Infraction],
+    infractionById(id:Float) : Infraction,
+}
+
+type Mutation {
+    saveInfraction(owner:InfractionRequest):Infraction
+    updateInfraction(owner:InfractionRequest):Infraction
+    deleteInfraction(id:Float): Infraction
+
+}
+type Infraction {
+    id : Float
+    date : String,
+    radar_id : Float,
+    radar_max_velocity : Int,
+    vehicle_license : String,
+    vehicle_velocity : Int,
+    cost : Float
+}
+
+input InfractionRequest {
+    date : String,
+    radar_id : Float,
+    radar_max_velocity : Int,
+    vehicle_license : String,
+    vehicle_velocity : Int,
+    cost : Float
+}

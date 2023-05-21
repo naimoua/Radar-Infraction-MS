@@ -1,0 +1,22 @@
+syntax = "proto3";
+option java_package="org.infraction.services.stubs";
+service VehicleService {
+  rpc addInfraction(InfractionRequest) returns (InfractionResponse){}
+}
+
+message InfractionRequest{
+  string radar_id = 1;
+  string radar_max_velocity = 2;
+  string vehicle_license = 3;
+  string vehicle_velocity = 4;
+}
+
+message InfractionResponse{
+  string id = 1;
+  string date = 2;
+  string radar_id = 3;
+  int64 radar_max_velocity = 4;
+  string vehicle_license = 5;
+  int64 vehicle_velocity = 6;
+  double cost = 7;
+}
