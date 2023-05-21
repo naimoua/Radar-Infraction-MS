@@ -1,0 +1,23 @@
+type Query {
+    owners:[Radar],
+    ownerById(id:Float) : Radar,
+}
+
+type Mutation {
+    saveRadar(owner:RadarRequest):Radar
+    updateRadar(owner:RadarRequest):Radar
+    deleteRadar(id:Float): Radar
+
+}
+type Radar {
+    id : Float
+    max_velocity : Int,
+    longitude : Float,
+    latitude : Float,
+}
+
+input RadarRequest {
+    max_velocity : Int,
+    longitude : Float,
+    latitude : Float
+}

@@ -1,0 +1,55 @@
+syntax = "proto3";
+option java_package="org.radar.services.stubs";
+service RadarService {
+  rpc getVehicleInfo(RadarRequest) returns (Vehicle);
+  rpc addInfraction(RadarRequest) returns (InfractionResponse);
+}
+message RadarRequest {
+  string radarId = 1;
+  double max_velocity = 2;
+  string vehicle_license = 3;
+  double vehicle_velocity = 4;
+}
+
+message InfractionRequest{
+  string radar_id = 1;
+  string radar_max_velocity = 2;
+  string vehicle_license = 3;
+  string vehicle_velocity = 4;
+}
+
+message InfractionResponse{
+  string id = 1;
+  string date = 2;
+  string radar_id = 3;
+  int64 radar_max_velocity = 4;
+  string vehicle_license = 5;
+  int64 vehicle_velocity = 6;
+  double cost = 7;
+  Vehicle vehicle = 8;
+  Radar radar = 9;
+}
+
+/////////////////
+
+message Vehicle{
+  string license_id = 1;
+  string brand = 2;
+  string fiscalPower = 3;
+  string model = 4;
+  Owner owner = 5;
+}
+
+message Radar{
+  string id = 1;
+  double max_velocity = 2;
+  double longitude = 3;
+  double latitude = 4;
+}
+
+message Owner{
+  int64 id = 1;
+  string name = 2;
+  string birthDate = 3;
+  string email = 4;
+}
